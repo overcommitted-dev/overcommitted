@@ -13,7 +13,7 @@ export default defineConfig({
       enabled: true
     }
   }),
-  site: 'https://overcommitted.dev',
+  site: 'https://overcommitted.dev/',
   base: '/overcommitted',
   integrations: [preact(), sitemap()],
   vite: {
