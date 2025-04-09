@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Set env vars from secrets
         run: |
-            echo "BUTTONDOWN_API_KEY=${{ secrets.SLACK_WEBHOOK }}" >> $GITHUB_ENV
+            echo "SLACK_WEBHOOK=${{ secrets.SLACK_WEBHOOK }}" >> $GITHUB_ENV
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
