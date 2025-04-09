@@ -29,22 +29,16 @@ jobs:
         #   path: dist # The root location of your Astro project inside the repository. (optional)
           node-version: 22 # The specific version of Node that should be used to build your site. Defaults to 20. (optional)
           package-manager: npm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
-    
-  move:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Move to dist
-        run: |
-          mv dist/client dist
 
   deploy:
-    needs: move
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Move the built files to dist
+        run: mv dist/client ./dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
