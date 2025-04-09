@@ -13,8 +13,7 @@ export default defineConfig({
       enabled: true
     }
   }),
-  site: 'https://overcommitted.dev/',
-  base: '/overcommitted',
+  site: 'https://overcommitted.dev',
   integrations: [preact(), sitemap()],
   vite: {
     plugins: [tailwindcss()]
