@@ -1,4 +1,4 @@
-import type { JSX } from 'preact/jsx-runtime';
+// import type { JSX } from 'preact/jsx-runtime';
 import { useState } from 'preact/hooks';
 import FormattedDate from '../components/FormattedDate';
 import FullPlayButton from '../components/FullPlayButton';
@@ -10,14 +10,15 @@ type Props = {
   url: URL;
 };
 
-function renderIcon(icon: JSX.Element) {
-  return <span>{icon}</span>;
-}
+// function renderIcon(icon: JSX.Element) {
+//   return <span>{icon}</span>;
+// }
 
 export default function EpisodeList({ episodes, url }: Props) {
   const [recentEpisodes, setRecentEpisodes] = useState(episodes);
   const [canLoadMore, setCanLoadMore] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  console.log(isLoading)
   // starting from page 2 due to static props fetch of page 1
   const [page, setPage] = useState(2);
 
