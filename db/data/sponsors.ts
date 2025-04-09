@@ -1,8 +1,8 @@
 export default [
   {
-    // id: 'norlan',
-    // name: 'Norlan',
-    // img: 'norlan.svg',
-    // url: 'https://norlanglass.com/'
+    id: 'overcommitted',
+    name: 'Overcommitted',
+    img: 'test.svg',
+    url: 'https://overcommitted.dev/'
   }
 ];
