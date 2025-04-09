@@ -14,6 +14,7 @@ export default defineConfig({
     }
   }),
   site: 'https://overcommitted.dev',
+  base: '/overcommitted',
   integrations: [preact(), sitemap()],
   vite: {
     plugins: [tailwindcss()]
