@@ -8,7 +8,7 @@ export default defineStarpodConfig({
     {
       name: 'Bethany Janos',
       bio: 'software engineer at GitHub, semi-professional dogspotter, free carbs are my favorite food',
-      img: 'https://github.com/bethanyjanos.png',
+      img: 'https://github.com/bethanyj28.png',
       github: 'https://github.com/bethanyj28',
       bluesky: 'https://bsky.app/profile/trustyduck.bsky.social',
     },
