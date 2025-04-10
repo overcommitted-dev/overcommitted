@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build && cp -r ./.vercel/output/static/ ./dist",
+    "build": "astro check && astro build && rm -rf ./dist && mkdir dist && cp -r .vercel/output/static/* dist",
     "preview": "astro preview",
     "astro": "astro",
     "test:e2e": "pnpm exec playwright test"
