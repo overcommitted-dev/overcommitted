@@ -1,13 +1,9 @@
 ---
-import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 
 import starpodConfig from '../../starpod.config';
 
 const { hosts } = starpodConfig;
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/img/people/*.{jpeg,jpg,png}'
-);
 ---
 
 <div
@@ -21,7 +17,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         <Image
           class="mr-4 h-12 w-12 rounded-lg"
           height={48}
-          src={images[`/src/img/people/${host.img}`]()}
+          src={host.img}
           width={48}
           alt=""
         />

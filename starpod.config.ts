@@ -8,14 +8,14 @@ export default defineStarpodConfig({
     {
       name: 'Bethany Janos',
       bio: 'software engineer at GitHub, semi-professional dogspotter, free carbs are my favorite food',
-      img: 'bethanyjanos.jpeg',
+      img: 'https://github.com/bethanyjanos.png',
       github: 'https://github.com/bethanyj28',
       bluesky: 'https://bsky.app/profile/trustyduck.bsky.social',
     },
     {
       name: 'Brittany Ellich',
       bio: 'Senior All-End Engineer at GitHub, not the most technical one in the room',
-      img: 'brittanyellich.jpeg',
+      img: 'https://github.com/brittanyellich.png',
       github: 'https://github.com/brittanyellich',
       bluesky: 'https://bsky.app/profile/brittanyellich.com',
       website: 'https://brittanyellich.com',
@@ -23,13 +23,13 @@ export default defineStarpodConfig({
     {
       name: 'Eggyhead',
       bio: 'Software Engineer at GitHub',
-      img: 'eggyhead.png',
+      img: 'https://github.com/eggyhead.png',
       github: 'https://github.com/eggyhead',
     },
     {
       name: 'Jonathan Tamsut',
       bio: 'Software Engineer at GitHub',
-      img: 'jtamsut.jpeg',
+      img: 'https://github.com/jtamsut.png',
       github: 'https://github.com/jtamsut',
       website: 'https://jtamsut.substack.com'
     }
