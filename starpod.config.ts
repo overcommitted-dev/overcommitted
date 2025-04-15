@@ -31,7 +31,8 @@ export default defineStarpodConfig({
       bio: 'Software Engineer at GitHub',
       img: 'https://github.com/jtamsut.png',
       github: 'https://github.com/jtamsut',
-      website: 'https://jtamsut.substack.com'
+      website: 'https://jtamsut.substack.com',
+      bluesky: 'https://bsky.app/profile/jetmin.bsky.social',
     }
   ],
   platforms: {
