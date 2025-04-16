@@ -25,6 +25,7 @@ export default defineStarpodConfig({
       bio: 'Software Engineer at GitHub',
       img: 'https://github.com/eggyhead.png',
       github: 'https://github.com/eggyhead',
+      bluesky: 'https://bsky.app/profile/eggyhead-dev.bsky.social',
     },
     {
       name: 'Jonathan Tamsut',
@@ -41,7 +42,8 @@ export default defineStarpodConfig({
     appleIdNumber: '1804549260',
     spotify: 'https://open.spotify.com/show/2QOeTxNTB5ouehOGpAJex7',
     youtube: 'https://www.youtube.com/playlist?list=PLtB6jHdGNyzd-GiAjcBjUXiuFxWeDwjjJ',
-    amazonMusic: 'https://music.amazon.com/podcasts/2199a9bb-b763-4bf4-b4ec-47e544d8a099/overcommitted'
+    amazonMusic: 'https://music.amazon.com/podcasts/2199a9bb-b763-4bf4-b4ec-47e544d8a099/overcommitted',
+    bluesky: 'https://bsky.app/profile/overcommitted.dev',
   },
   rssFeed: 'https://anchor.fm/s/102586d64/podcast/rss'
 });

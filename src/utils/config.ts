@@ -53,6 +53,7 @@ export type StarpodConfig = {
     spotify?: string;
     youtube?: string;
     amazonMusic?: string;
+    bluesky?: string;
   };
   /**
    * The url to the RSS feed where your podcast is hosted.

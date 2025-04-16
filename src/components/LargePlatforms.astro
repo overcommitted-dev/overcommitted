@@ -72,6 +72,18 @@ const { platforms, rssFeed } = starpodConfig;
     )
   }
   {
+    platforms?.bluesky && (
+      <a
+        class="animated-bottom-border font-bold text-light-text-heading after:mt-4 dark:text-white"
+        href={platforms.bluesky}
+      >
+        <span class="flex items-center">
+          Bluesky
+        </span>
+      </a>
+    )
+  }
+  {
     rssFeed && (
       <a
         class="animated-bottom-border font-bold text-light-text-heading after:mt-4 dark:text-white"
