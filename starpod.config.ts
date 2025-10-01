@@ -1,9 +1,9 @@
 import { defineStarpodConfig } from 'src/utils/config';
 
 export default defineStarpodConfig({
-  blurb: 'A collection of overcommitted overachievers discuss what it takes to be developers.',
+  blurb: 'Overcommitted brings you software engineers who are genuinely passionate about their craft, discussing the technical decisions, learning strategies, and career challenges that matter.',
   description:
-    'Bethany, Brittany, Erika, and Jon are software engineers at GitHub that have banded together due to a shared love of doing lots of things. They get together weekly to discuss software engineering.',
+    'Overcommitted is where passion for the craft meets real talk about software engineering—from pull request philosophy and technical debt strategy to imposter syndrome and continuous learning, we are engineers committed to growing together and sharing the honest, thoughtful conversations that make you better at your job and your life.',
   hosts: [
     {
       name: 'Bethany Janos',
