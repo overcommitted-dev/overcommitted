@@ -45,7 +45,7 @@ We'd love to hear from you! Here are ways to engage with our blog content:
 
 - **Suggest topics** - What would you like us to write about?
 - **Share your experiences** - Comment on posts with your own insights
-- **Guest contributions** - Interested in writing for us? [Get in touch](/contact)!
+- **Guest contributions** - Interested in writing for us? Get in touch: overcommitted.dev@gmail.com
 
 ## What's Next?
 
