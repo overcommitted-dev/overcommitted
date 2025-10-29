@@ -4,7 +4,7 @@ Welcome! We're excited that you're interested in contributing to Overcommitted. 
 
 ## About the Project
 
-Overcommitted is a podcast website built with the **Starpod** framework - an open-source tool for creating podcast websites quickly and easily. The site features the "Overcommitted" podcast, where passionate software engineers discuss technical decisions, learning strategies, and career challenges.
+Overcommitted is a podcast website built with the **Starpod** framework - an open-source tool for creating podcast websites quickly and easily based on [Astro](https://astro.build/). The site features the "Overcommitted" podcast, where passionate software engineers discuss technical decisions, learning strategies, and career challenges.
 
 ## Technology Stack
 
