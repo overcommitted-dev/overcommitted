@@ -1,6 +1,10 @@
 import { useState } from 'preact/hooks';
 
-export default function ContactForm() {
+interface ContactFormProps {
+  accessKey: string;
+}
+
+export default function ContactForm({ accessKey }: ContactFormProps) {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [responseMessage, setResponseMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -43,7 +47,7 @@ export default function ContactForm() {
           <input
             type="hidden"
             name="access_key"
-            value={import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY}
+            value={accessKey}
           />
           
           <input
