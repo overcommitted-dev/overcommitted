@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm';
+
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
 ---
 
 <Layout title="Contact">
@@ -16,6 +18,6 @@ import ContactForm from '../components/ContactForm';
       Reach out here and we'll be in touch soon!
     </p>
 
-    <ContactForm client:load />
+    <ContactForm client:load accessKey={accessKey} />
   </div>
 </Layout>
