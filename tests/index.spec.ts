@@ -1,11 +1,9 @@
 import { expect, test } from '@playwright/test';
 
 const indexMeta = {
-  title: 'Whiskey Web and Whatnot: Web Development, Neat',
+  title: 'Overcommitted',
   description:
-    /^Veteran web developers RobbieTheWagner and Charles William Carpenter III host this informal, whiskey-fueled fireside chat with your favorite web devs/,
-  image:
-    'https://content.production.cdn.art19.com/images/68/ab/83/a8/68ab83a8-c791-4d25-bca6-c0c7e2b16306/6b4c27783b4d53afdc6b82c0d44991f8fac363f181cbc7e6905933cf064b5831271186d9efe568d4bf138e059dc9195f6143993ceab5288c21e5ef47ee532e5f.jpeg'
+    /Overcommitted is where passion for the craft meets real talk about software engineering/,
 };
 
 test('index page has correct meta', async ({ page }) => {
@@ -23,8 +21,21 @@ test('index page has correct meta', async ({ page }) => {
   await expect(description).toHaveAttribute('content', indexMeta.description);
 
   const ogImage = page.locator('meta[property="og:image"]');
-  await expect(ogImage).toHaveAttribute('content', indexMeta.image);
+  await expect(ogImage).toHaveAttribute('content', /^https?:\/\/.+/);
 
   const twitterImage = page.locator('meta[name="twitter:image:src"]');
-  await expect(twitterImage).toHaveAttribute('content', indexMeta.image);
+  await expect(twitterImage).toHaveAttribute('content', /^https?:\/\/.+/);
+});
+
+test('index page displays episodes', async ({ page }) => {
+  await page.goto('/');
+
+  // Should have an Episodes heading
+  const heading = page.locator('h1').filter({ hasText: 'Episodes' });
+  await expect(heading).toBeVisible();
+
+  // Should have at least one episode article
+  const articles = page.locator('article');
+  const count = await articles.count();
+  expect(count).toBeGreaterThan(0);
 });

@@ -9,9 +9,10 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 
 const title = 'Blog - Overcommitted';
+const description = 'Insights, tutorials, and thoughts on software engineering from the Overcommitted team and community.';
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description}>
   <div class="relative z-10 px-8 lg:px-18">
     <h1
       class="mb-4 text-2xl font-bold text-light-text-heading lg:mb-6 lg:text-5xl dark:text-white"

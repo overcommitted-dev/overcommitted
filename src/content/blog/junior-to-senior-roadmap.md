@@ -1,7 +1,7 @@
 ---
 title: 'From Junior to Senior: A Practical Roadmap for Engineering Growth'
 description: 'A comprehensive guide to advancing your software engineering career with concrete skills, milestones, and actionable advice for each stage of growth.'
-publishDate: 2025-10-24
+publishDate: 2025-10-26
 author: 'Bethany Janos'
 tags: ['career-growth', 'junior-engineer', 'senior-engineer', 'professional-development']
 draft: true

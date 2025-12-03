@@ -91,12 +91,13 @@ rssFeed: 'https://rss.art19.com/whiskey-web-and-whatnot';
 
 #### Setting up the contact form
 
-The contact form hits an APIRoute at `/api/contact`. It is currently configured
-to send the form data to a Slack channel webhook I had setup. It reads the url
-from `import.meta.env.SLACK_WEBHOOK`, so if you define a `SLACK_WEBHOOK`
-environment variable it should work for you. Of course, feel free to customize
-the code [here](./src/pages/api/contact.ts) to send the data elsewhere as you
-see fit.
+The contact form uses [Web3Forms](https://web3forms.com/) to handle form submissions. To set it up:
+
+1. Go to [web3forms.com](https://web3forms.com/) and get a free access key
+2. Copy `.env.example` to `.env`
+3. Add your access key to the `PUBLIC_WEB3FORMS_ACCESS_KEY` variable in `.env`
+
+Web3Forms will send form submissions to your email and provides a dashboard to manage them.
 
 #### Configuring guests
 
