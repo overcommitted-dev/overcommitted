@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm';
 
 const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
+console.log('Access key defined:', !!accessKey, 'Length:', accessKey?.length, 'First 8 chars:', accessKey?.substring(0, 8));
 ---
 
 <Layout title="Contact">
@@ -18,6 +19,6 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
       Reach out here and we'll be in touch soon!
     </p>
 
-    <ContactForm client:load accessKey={accessKey} />
+    <ContactForm client:load accessKey={accessKey} data-has-key={!!accessKey} data-key-preview={accessKey?.substring(0, 8)} />
   </div>
 </Layout>
