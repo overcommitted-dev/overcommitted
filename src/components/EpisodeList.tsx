@@ -4,6 +4,7 @@ import FormattedDate from '../components/FormattedDate';
 import FullPlayButton from '../components/FullPlayButton';
 import { currentEpisode } from '../components/state';
 import type { Episode } from '../lib/rss';
+import { getEpisodeTags } from '../data/episodeTags';
 
 type Props = {
   episodes: Array<Episode>;
@@ -42,6 +43,7 @@ export default function EpisodeList({ episodes, url }: Props) {
       <ul aria-label="EpisodeList">
         {recentEpisodes.map((episode) => {
           const isCurrentEpisode = episode.id == currentEpisode.value?.id;
+          const tags = episode.episodeNumber ? getEpisodeTags(episode.episodeNumber) : [];
 
           return (
             <li class="border-b dark:border-dark-border">
@@ -67,7 +69,20 @@ export default function EpisodeList({ episodes, url }: Props) {
                     </a>
                   </h2>
 
-                  <p class="mb-5">{episode.description}</p>
+                  <p class="mb-3">{episode.description}</p>
+
+                  {tags.length > 0 && (
+                    <div class="mb-4 flex flex-wrap gap-2">
+                      {tags.map((tag) => (
+                        <a
+                          href={`/topics?tag=${encodeURIComponent(tag)}`}
+                          class="rounded-full bg-gray-200 px-2 py-0.5 text-xs transition-colors hover:bg-ctp-mauve hover:text-white dark:bg-dark-button dark:hover:bg-ctp-mauve"
+                        >
+                          {tag}
+                        </a>
+                      ))}
+                    </div>
+                  )}
 
                   <div class="flex items-center gap-6 text-sm">
                     <FullPlayButton episode={episode} />

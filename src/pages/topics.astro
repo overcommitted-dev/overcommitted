@@ -1,0 +1,312 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import FormattedDate from '../components/FormattedDate';
+import { getAllEpisodes } from '../lib/rss';
+import { AVAILABLE_TAGS, getEpisodeTags, type EpisodeTag } from '../data/episodeTags';
+
+// Get all episodes
+const allEpisodes = await getAllEpisodes();
+
+// Get all blog posts
+const allPosts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+// Build episodes with tags
+const episodesWithTags = allEpisodes.map((episode) => ({
+  ...episode,
+  tags: episode.episodeNumber ? getEpisodeTags(episode.episodeNumber) : [],
+  type: 'episode' as const,
+}));
+
+// Build blog posts with normalized tags
+const postsWithTags = allPosts.map((post) => ({
+  ...post,
+  normalizedTags: (post.data.tags || []).map((tag: string) => {
+    // Map blog tags to episode tags where applicable
+    const tagMap: Record<string, EpisodeTag> = {
+      'career-growth': 'Career Development',
+      'professional-development': 'Career Development',
+      'junior-engineer': 'Career Development',
+      'senior-engineer': 'Career Development',
+      'ai': 'AI & Developer Tools',
+      'developer-tools': 'AI & Developer Tools',
+      'technical': 'Technical Deep Dives',
+      'leadership': 'Leadership & Management',
+      'management': 'Leadership & Management',
+      'career-change': 'Non-traditional Paths to Tech',
+      'bootcamp': 'Non-traditional Paths to Tech',
+      'devrel': 'Developer Experience/DevRel',
+      'developer-experience': 'Developer Experience/DevRel',
+      'mental-health': 'Imposter Syndrome & Mental Health',
+      'imposter-syndrome': 'Imposter Syndrome & Mental Health',
+      'productivity': 'Productivity & Learning',
+      'learning': 'Productivity & Learning',
+      'open-source': 'Open Source & GitHub',
+      'github': 'Open Source & GitHub',
+    };
+    return tagMap[tag.toLowerCase()] || tag;
+  }),
+  type: 'blog' as const,
+}));
+
+// Count episodes per tag
+const tagCounts: Record<string, number> = {};
+AVAILABLE_TAGS.forEach((tag) => {
+  tagCounts[tag] = episodesWithTags.filter((ep) => ep.tags.includes(tag)).length;
+});
+
+const title = 'Browse by Topic - Overcommitted';
+const description = 'Explore Overcommitted podcast episodes and blog posts by topic. Find content about career development, AI tools, technical deep dives, leadership, and more.';
+---
+
+<Layout title={title} description={description}>
+  <div class="relative z-10 px-8 lg:px-18">
+    <h1
+      class="mb-4 text-2xl font-bold text-light-text-heading lg:mb-6 lg:text-5xl dark:text-white"
+    >
+      Browse by Topic
+    </h1>
+
+    <p class="mb-8 lg:mb-12">
+      Explore our episodes and blog posts by topic. Click on a tag to filter content.
+    </p>
+
+    <!-- Tag Filter Section -->
+    <section class="mb-12">
+      <h2 class="section-heading-underlined mb-6">Topics</h2>
+      <div class="flex flex-wrap gap-3" id="tag-filters">
+        <button
+          class="tag-filter-btn active rounded-full bg-light-text-heading px-4 py-2 text-sm font-medium text-white transition-colors dark:bg-ctp-mauve"
+          data-tag="all"
+        >
+          All ({episodesWithTags.length + postsWithTags.length})
+        </button>
+        {AVAILABLE_TAGS.map((tag) => (
+          <button
+            class="tag-filter-btn rounded-full bg-gray-200 px-4 py-2 text-sm font-medium transition-colors hover:bg-ctp-mauve hover:text-white dark:bg-dark-button dark:hover:bg-ctp-mauve"
+            data-tag={tag}
+          >
+            {tag} ({tagCounts[tag]})
+          </button>
+        ))}
+      </div>
+    </section>
+
+    <!-- Content Type Tabs -->
+    <section class="mb-8">
+      <div class="flex gap-4 border-b dark:border-dark-border">
+        <button
+          class="content-tab active border-b-2 border-ctp-mauve px-4 py-2 font-medium text-light-text-heading dark:text-white"
+          data-type="all"
+        >
+          All Content
+        </button>
+        <button
+          class="content-tab border-b-2 border-transparent px-4 py-2 font-medium text-gray-500 hover:text-light-text-heading dark:hover:text-white"
+          data-type="episodes"
+        >
+          Episodes ({episodesWithTags.length})
+        </button>
+        <button
+          class="content-tab border-b-2 border-transparent px-4 py-2 font-medium text-gray-500 hover:text-light-text-heading dark:hover:text-white"
+          data-type="blog"
+        >
+          Blog Posts ({postsWithTags.length})
+        </button>
+      </div>
+    </section>
+
+    <!-- Episodes Section -->
+    <section class="mb-12" id="episodes-section">
+      <h2 class="section-heading mb-6">Episodes</h2>
+      <div class="space-y-6" id="episodes-list">
+        {episodesWithTags.map((episode) => (
+          <article
+            class="episode-item rounded-lg border p-4 transition-colors hover:bg-gray-50 dark:border-dark-border dark:hover:bg-dark-button"
+            data-tags={JSON.stringify(episode.tags)}
+          >
+            <div class="flex flex-col gap-4 lg:flex-row">
+              <img
+                alt={`${episode.title} - episode art`}
+                class="h-16 w-16 rounded-md"
+                height={64}
+                src={episode.episodeImage ?? '/images/www.png'}
+                width={64}
+              />
+              <div class="flex-1">
+                <div class="mb-1 text-sm text-gray-500">
+                  <FormattedDate date={new Date(episode.published)} />
+                </div>
+                <h3 class="mb-2 font-bold text-light-text-heading dark:text-white">
+                  <a href={`/${episode.episodeSlug}`} class="hover:underline">
+                    Episode {episode.episodeNumber}: {episode.title}
+                  </a>
+                </h3>
+                <p class="mb-3 text-sm">{episode.description}</p>
+                <div class="flex flex-wrap gap-2">
+                  {episode.tags.map((tag) => (
+                    <span class="rounded-full bg-gray-200 px-2 py-0.5 text-xs dark:bg-dark-button">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="mb-12" id="blog-section">
+      <h2 class="section-heading mb-6">Blog Posts</h2>
+      <div class="space-y-6" id="blog-list">
+        {postsWithTags.length === 0 ? (
+          <p class="text-gray-500 dark:text-gray-400">No blog posts available yet.</p>
+        ) : (
+          postsWithTags.map((post) => (
+            <article
+              class="blog-item rounded-lg border p-4 transition-colors hover:bg-gray-50 dark:border-dark-border dark:hover:bg-dark-button"
+              data-tags={JSON.stringify(post.normalizedTags)}
+            >
+              <div class="mb-1 text-sm text-gray-500">
+                <FormattedDate date={post.data.publishDate} />
+              </div>
+              <h3 class="mb-2 font-bold text-light-text-heading dark:text-white">
+                <a href={`/blog/${post.slug}`} class="hover:underline">
+                  {post.data.title}
+                </a>
+              </h3>
+              <p class="mb-3 text-sm">{post.data.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {(post.data.tags || []).map((tag: string) => (
+                  <span class="rounded-full bg-gray-200 px-2 py-0.5 text-xs dark:bg-dark-button">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))
+        )}
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script>
+  // Initialize filtering functionality
+  function initFilters() {
+    const tagButtons = document.querySelectorAll('.tag-filter-btn');
+    const contentTabs = document.querySelectorAll('.content-tab');
+    const episodeItems = document.querySelectorAll('.episode-item');
+    const blogItems = document.querySelectorAll('.blog-item');
+    const episodesSection = document.getElementById('episodes-section');
+    const blogSection = document.getElementById('blog-section');
+
+    let currentTag = 'all';
+    let currentType = 'all';
+
+    // Check URL for initial tag filter
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialTag = urlParams.get('tag');
+    if (initialTag) {
+      currentTag = initialTag;
+      // Update active button
+      tagButtons.forEach((btn) => {
+        const btnTag = btn.getAttribute('data-tag');
+        btn.classList.toggle('active', btnTag === currentTag);
+        btn.classList.toggle('bg-light-text-heading', btnTag === currentTag);
+        btn.classList.toggle('text-white', btnTag === currentTag);
+        btn.classList.toggle('dark:bg-ctp-mauve', btnTag === currentTag);
+        btn.classList.toggle('bg-gray-200', btnTag !== currentTag);
+        btn.classList.toggle('dark:bg-dark-button', btnTag !== currentTag);
+      });
+    }
+
+    function filterContent() {
+      // Filter episodes
+      episodeItems.forEach((item) => {
+        const tags = JSON.parse(item.getAttribute('data-tags') || '[]');
+        const matchesTag = currentTag === 'all' || tags.includes(currentTag);
+        const matchesType = currentType === 'all' || currentType === 'episodes';
+        (item as HTMLElement).style.display = matchesTag && matchesType ? 'block' : 'none';
+      });
+
+      // Filter blog posts
+      blogItems.forEach((item) => {
+        const tags = JSON.parse(item.getAttribute('data-tags') || '[]');
+        const matchesTag = currentTag === 'all' || tags.includes(currentTag);
+        const matchesType = currentType === 'all' || currentType === 'blog';
+        (item as HTMLElement).style.display = matchesTag && matchesType ? 'block' : 'none';
+      });
+
+      // Show/hide sections based on content type
+      if (episodesSection) {
+        (episodesSection as HTMLElement).style.display = 
+          currentType === 'blog' ? 'none' : 'block';
+      }
+      if (blogSection) {
+        (blogSection as HTMLElement).style.display = 
+          currentType === 'episodes' ? 'none' : 'block';
+      }
+    }
+
+    // Tag filter click handlers
+    tagButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        currentTag = btn.getAttribute('data-tag') || 'all';
+        
+        // Update active state
+        tagButtons.forEach((b) => {
+          const isActive = b === btn;
+          b.classList.toggle('active', isActive);
+          b.classList.toggle('bg-light-text-heading', isActive);
+          b.classList.toggle('text-white', isActive);
+          b.classList.toggle('dark:bg-ctp-mauve', isActive);
+          b.classList.toggle('bg-gray-200', !isActive);
+          b.classList.toggle('dark:bg-dark-button', !isActive);
+        });
+
+        // Update URL
+        const url = new URL(window.location.href);
+        if (currentTag === 'all') {
+          url.searchParams.delete('tag');
+        } else {
+          url.searchParams.set('tag', currentTag);
+        }
+        window.history.pushState({}, '', url.toString());
+
+        filterContent();
+      });
+    });
+
+    // Content type tab click handlers
+    contentTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        currentType = tab.getAttribute('data-type') || 'all';
+        
+        // Update active state
+        contentTabs.forEach((t) => {
+          const isActive = t === tab;
+          t.classList.toggle('active', isActive);
+          t.classList.toggle('border-ctp-mauve', isActive);
+          t.classList.toggle('text-light-text-heading', isActive);
+          t.classList.toggle('dark:text-white', isActive);
+          t.classList.toggle('border-transparent', !isActive);
+          t.classList.toggle('text-gray-500', !isActive);
+        });
+
+        filterContent();
+      });
+    });
+
+    // Initial filter
+    filterContent();
+  }
+
+  // Run on page load and after Astro navigation
+  initFilters();
+  document.addEventListener('astro:after-swap', initFilters);
+</script>

@@ -9,6 +9,7 @@ import FullPlayButton from '../components/FullPlayButton';
 import UFOIllustration from '../components/illustrations/UFOIllustration.astro';
 import Layout from '../layouts/Layout.astro';
 import { getAllEpisodes, getShowInfo } from '../lib/rss';
+import { getEpisodeTags } from '../data/episodeTags';
 
 const show = await getShowInfo();
 
@@ -44,6 +45,8 @@ if (episode.episodeNumber && episode.episodeNumber !== 'Bonus') {
 const canonicalURL = new URL(`/${episode.episodeSlug}`, Astro.url);
 
 const title = `${episode.title} - ${show.title} - Episode ${episode.episodeNumber}`;
+
+const tags = episode.episodeNumber ? getEpisodeTags(episode.episodeNumber) : [];
 ---
 
 <Layout
@@ -79,9 +82,22 @@ const title = `${episode.title} - ${show.title} - Episode ${episode.episodeNumbe
           {episode.episodeNumber}: {episode.title}
         </h1>
 
-        <p class="mb-8 lg:mb-12">
+        <p class="mb-4 lg:mb-6">
           {episode.description}
         </p>
+
+        {tags.length > 0 && (
+          <div class="mb-8 flex flex-wrap gap-2 lg:mb-12">
+            {tags.map((tag) => (
+              <a
+                href={`/topics?tag=${encodeURIComponent(tag)}`}
+                class="rounded-full bg-gray-200 px-3 py-1 text-sm transition-colors hover:bg-ctp-mauve hover:text-white dark:bg-dark-button dark:hover:bg-ctp-mauve"
+              >
+                {tag}
+              </a>
+            ))}
+          </div>
+        )}
 
         <div class="mb-8 block lg:hidden">
           <FullPlayButton client:load episode={episode} />

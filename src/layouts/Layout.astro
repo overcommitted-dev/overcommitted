@@ -35,6 +35,24 @@ const { imageUrl, title } = Astro.props;
 const canonicalURL =
   Astro.props.canonicalURL ?? new URL(Astro.url.pathname, Astro.site);
 const description = Astro.props.description ?? starpodConfig.description;
+
+const siteUrl = 'https://overcommitted.dev';
+const keywords = [
+  'software engineering podcast',
+  'tech careers',
+  'developer interviews',
+  'programming insights',
+  'GitHub',
+  'open source',
+  'career growth',
+  'imposter syndrome',
+  'technical debt',
+  'code quality',
+  'continuous learning',
+  'software development',
+  'engineering culture',
+  'developer community'
+];
 ---
 
 <!doctype html>
@@ -46,8 +64,29 @@ const description = Astro.props.description ?? starpodConfig.description;
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <link rel="canonical" href={canonicalURL} />
-    <meta content={canonicalURL} property="og:url" />
-    <meta content="website" property="og:type" />
+
+    <!-- Keywords for LLM and search engine discoverability -->
+    <meta name="keywords" content={keywords.join(', ')} />
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content={show.title} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl ?? show.image} />
+    <meta property="og:image:alt" content={`${show.title} podcast artwork`} />
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@brittanyellich" />
+    <meta name="twitter:creator" content="@brittanyellich" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl ?? show.image} />
+    <meta name="twitter:image:alt" content={`${show.title} podcast artwork`} />
+
     {
       starpodConfig.platforms.appleIdNumber && (
         <meta
@@ -68,20 +107,9 @@ const description = Astro.props.description ?? starpodConfig.description;
 
     <!-- Title -->
     <title>{title}</title>
-    <meta content={title} property="og:title" />
-    <meta content={title} name="twitter:title" />
 
     <!-- Description -->
-    <meta content={description} name="description" />
-    <meta content={description} property="og:description" />
-    <meta content={description} name="twitter:description" />
-
-    <!-- Image -->
-    <meta content={imageUrl ?? show.image} property="og:image" />
-    <meta content="summary" name="twitter:card" />
-    <meta content={imageUrl ?? show.image} name="twitter:image:src" />
-
-    <meta property="og:site_name" content={show.title} />
+    <meta name="description" content={description} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -90,17 +118,82 @@ const description = Astro.props.description ?? starpodConfig.description;
       rel="stylesheet"
     />
 
+    <!-- JSON-LD Structured Data for PodcastSeries -->
     <Schema
       slot="head"
       item={{
         '@context': 'https://schema.org',
         '@type': 'PodcastSeries',
         name: show.title,
-        about: starpodConfig.blurb,
         description: show.description,
-        webFeed: starpodConfig.rssFeed
-      }}
+        abstract: starpodConfig.blurb,
+        url: siteUrl,
+        webFeed: starpodConfig.rssFeed,
+        image: show.image,
+        inLanguage: 'en-US',
+        genre: ['Technology', 'Education', 'Career Development'],
+        keywords: keywords.join(', '),
+        productionCompany: {
+          '@type': 'Organization',
+          name: 'Overcommitted',
+          url: siteUrl
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Overcommitted',
+          url: siteUrl,
+          logo: {
+            '@type': 'ImageObject',
+            url: show.image
+          }
+        },
+        contributor: starpodConfig.hosts.map(host => ({
+          '@type': 'Person',
+          name: host.name,
+          description: host.bio,
+          image: host.img,
+          url: host.website || host.github,
+          sameAs: [host.github, host.bluesky, host.website].filter(Boolean)
+        })),
+        sameAs: [
+          starpodConfig.platforms.apple,
+          starpodConfig.platforms.spotify,
+          starpodConfig.platforms.youtube,
+          starpodConfig.platforms.amazonMusic,
+          starpodConfig.platforms.bluesky
+        ].filter(Boolean),
+        potentialAction: {
+          '@type': 'ListenAction',
+          target: [
+            {
+              '@type': 'EntryPoint',
+              urlTemplate: starpodConfig.platforms.apple,
+              actionPlatform: 'http://schema.org/DesktopWebPlatform'
+            },
+            {
+              '@type': 'EntryPoint', 
+              urlTemplate: starpodConfig.platforms.spotify,
+              actionPlatform: 'http://schema.org/DesktopWebPlatform'
+            }
+          ]
+        }
+      } as any}
     />
+
+    <!-- Additional JSON-LD for WebSite with episode count -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: show.title,
+      url: siteUrl,
+      description: description,
+      inLanguage: 'en-US',
+      publisher: {
+        '@type': 'Organization',
+        name: 'Overcommitted',
+        url: siteUrl
+      }
+    })} />
 
     <slot name="head" />
 

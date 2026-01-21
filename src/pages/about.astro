@@ -5,37 +5,221 @@ import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import starpodConfig from '../../starpod.config';
 import LargePlatforms from '../components/LargePlatforms.astro';
+import { AVAILABLE_TAGS } from '../data/episodeTags';
 
 const { hosts } = starpodConfig;
 const images = import.meta.glob<{ default: ImageMetadata }>(
   '/src/img/people/*.{jpeg,jpg,png}'
 );
+
+// FAQ data for both display and JSON-LD schema
+const faqs = [
+  {
+    question: 'What is Overcommitted about?',
+    answer: 'Overcommitted is a weekly software engineering podcast hosted by engineers from GitHub. We explore the human side of software development—covering career growth, technical best practices, mental health in tech, and industry trends. Each episode features either deep-dive discussions between our hosts or interviews with industry leaders, authors, and practitioners who share their insights and experiences.'
+  },
+  {
+    question: 'Who should listen to this podcast?',
+    answer: "Overcommitted is for anyone working in or aspiring to work in software development. Whether you're a junior developer just starting out, a senior engineer looking to grow into leadership, a career changer transitioning into tech, or an engineering manager wanting to stay connected to the developer experience—there's something here for you. We especially appeal to engineers who appreciate honest, thoughtful conversations about both the technical and personal aspects of our profession."
+  },
+  {
+    question: 'What topics do you cover?',
+    answer: 'We cover a wide range of topics including: career development and professional growth, AI and developer productivity tools, technical deep dives, leadership and management, imposter syndrome and mental health, productivity and learning strategies, open source and GitHub workflows, developer advocacy and content creation, accessibility and inclusive design, and product-engineering collaboration.'
+  },
+  {
+    question: 'How is this different from other tech podcasts?',
+    answer: "Three things set Overcommitted apart: First, we're active practitioners—our hosts are working software engineers at GitHub, not just commentators. We share real insights from our daily work building software at scale. Second, we blend technical content with personal development, recognizing that being a great engineer is about more than just code. Third, we've built an engaged community of 140+ engineers on Discord who collaborate, share knowledge, and support each other beyond the podcast."
+  },
+  {
+    question: 'How often do new episodes come out?',
+    answer: 'We release new episodes weekly. Episodes typically run 30-60 minutes—perfect for your commute, lunch break, or coding session. Subscribe on your favorite podcast platform to get notified when new episodes drop!'
+  },
+  {
+    question: 'How can I be a guest on the show?',
+    answer: "We love hearing from potential guests! If you have expertise or experiences to share with our community of software engineers, reach out to us through our contact page. We're especially interested in stories about career transitions, technical deep dives, lessons learned, and perspectives that will help our listeners grow as engineers and professionals."
+  }
+];
+
+// JSON-LD FAQ Schema
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer
+    }
+  }))
+};
+
+const notableGuests = [
+  {
+    name: 'Thomas Dohmke',
+    title: 'Former CEO of GitHub',
+    episode: 30
+  },
+  {
+    name: 'Cassidy Williams',
+    title: 'Developer Advocate at GitHub',
+    episode: 39
+  },
+  {
+    name: 'Jason Lengstorf',
+    title: 'Creator of codeTV',
+    episode: 37
+  },
+  {
+    name: 'Kate Holterhoff',
+    title: 'Industry Analyst at RedMonk',
+    episode: 35
+  },
+  {
+    name: 'Annie Sexton',
+    title: 'Developer Advocate at Fly.io & YouTube Creator',
+    episode: 25
+  },
+  {
+    name: 'Bassem Dghaidi',
+    title: 'Senior Software Engineer & Developer Educator',
+    episode: 41
+  },
+  {
+    name: 'Dan Moore',
+    title: 'Author of the CIAM Newsletter',
+    episode: 36
+  },
+  {
+    name: 'Abbey Perini',
+    title: 'Accessibility Advocate & Conference Speaker',
+    episode: 43
+  }
+];
+
+
 ---
 
-<Layout title="About">
+<Layout title="About Overcommitted - Software Engineering Podcast">
+  <!-- FAQ Schema for LLM/Search discoverability -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  
   <div class="relative z-10 px-8 lg:px-18">
     <h1
       class="mb-4 text-2xl font-bold text-light-text-heading lg:mb-6 lg:text-5xl dark:text-white"
     >
-      About the show
+      About the Show
     </h1>
 
-    <p class="mb-5">{starpodConfig.description}</p>
+    <!-- Mission & What Makes Us Unique -->
+    <section class="mb-12">
+      <p class="mb-5 text-lg">{starpodConfig.description}</p>
+      
+      <div class="mt-6 rounded-lg bg-gray-100 p-6 dark:bg-dark-button">
+        <h2 class="mb-3 text-xl font-bold text-light-text-heading dark:text-white">What Makes Overcommitted Different</h2>
+        <p class="mb-4">
+          We're not just talking heads—we're <strong>software engineers actively working in the field</strong>, sharing real insights from our daily experiences building software at scale. Our hosts met while working together at GitHub and discovered a shared passion for continuous learning and helping others grow.
+        </p>
+        <p>
+          Beyond the podcast, we've built a <strong>community of 140+ engineers</strong> who collaborate, share knowledge, and support each other's growth. We blend <strong>technical deep-dives with career and personal development</strong> conversations, because being a great engineer is about more than just code.
+        </p>
+      </div>
+    </section>
 
-    <LargePlatforms />
+    <!-- Listen Now -->
+    <section class="mb-12">
+      <h2 class="section-heading-underlined mb-6">Listen Now</h2>
+      <LargePlatforms />
+    </section>
 
-    <h2 class="section-heading-underlined mt-16 lg:mt-24">Meet the hosts</h2>
+    <!-- Target Audience -->
+    <section class="mb-12">
+      <h2 class="section-heading-underlined mb-6">Who This Podcast Is For</h2>
+      <ul class="ml-6 list-disc space-y-2">
+        <li><strong>Software engineers</strong> at any level looking to level up their skills and career</li>
+        <li><strong>Career changers</strong> transitioning into tech or bootcamp graduates starting their journey</li>
+        <li><strong>Tech professionals</strong> interested in engineering culture, productivity, and industry trends</li>
+        <li><strong>Engineering managers</strong> who want to stay connected to the developer experience</li>
+        <li>Anyone who wants <strong>honest, thoughtful conversations</strong> about life as a developer</li>
+      </ul>
+    </section>
+
+    <!-- Format & Frequency -->
+    <section class="mb-12">
+      <h2 class="section-heading-underlined mb-6">Format & Schedule</h2>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-lg border p-4 dark:border-dark-border">
+          <p class="text-2xl font-bold text-light-text-heading dark:text-white">Weekly</p>
+          <p class="text-sm">New episodes every week</p>
+        </div>
+        <div class="rounded-lg border p-4 dark:border-dark-border">
+          <p class="text-2xl font-bold text-light-text-heading dark:text-white">30-60 min</p>
+          <p class="text-sm">Perfect for your commute or lunch break</p>
+        </div>
+        <div class="rounded-lg border p-4 dark:border-dark-border">
+          <p class="text-2xl font-bold text-light-text-heading dark:text-white">43+ Episodes</p>
+          <p class="text-sm">And counting!</p>
+        </div>
+      </div>
+      <p class="mt-4">
+        Each episode features either a <strong>host-led discussion</strong> where we dive deep into topics we're passionate about, or a <strong>guest interview</strong> with industry leaders, authors, and practitioners sharing their expertise.
+      </p>
+    </section>
+
+    <!-- Topics We Cover -->
+    <section class="mb-12">
+      <h2 class="section-heading-underlined mb-6">Topics We Cover</h2>
+      <div class="flex flex-wrap gap-2">
+        {AVAILABLE_TAGS.map((tag) => (
+          <a 
+            href={`/topics?tag=${encodeURIComponent(tag)}`}
+            class="rounded-full bg-gray-200 px-3 py-1 text-sm text-light-text-heading transition-colors hover:bg-ctp-mauve hover:text-white dark:bg-dark-button dark:text-white dark:hover:bg-ctp-mauve"
+          >
+            {tag}
+          </a>
+        ))}
+      </div>
+      <p class="mt-4 text-sm">
+        <a href="/topics" class="underline hover:text-ctp-mauve">Browse all episodes by topic →</a>
+      </p>
+    </section>
+
+    <!-- Notable Guests -->
+    <section class="mb-12">
+      <h2 class="section-heading-underlined mb-6">Notable Guests</h2>
+      <p class="mb-6">We've been fortunate to speak with incredible people across the tech industry:</p>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {notableGuests.map((guest) => (
+          <div class="rounded-lg border p-4 dark:border-dark-border">
+            <p class="font-bold text-light-text-heading dark:text-white">{guest.name}</p>
+            <p class="text-sm">{guest.title}</p>
+            {guest.episode && (
+              <a 
+                href={`/${guest.episode}`}
+                class="mt-2 inline-block text-sm font-medium text-ctp-blue hover:underline dark:text-ctp-sapphire"
+              >
+                Listen to Episode {guest.episode} →
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+      <p class="mt-4 text-sm italic">...and many more engineers, advocates, and industry experts!</p>
+    </section>
+
+    <!-- Meet the Hosts -->
+    <h2 class="section-heading-underlined mt-16 lg:mt-24">Meet the Hosts</h2>
 
     <div class="mt-9 lg:mt-12">
       {
         hosts.map((host) => (
-          <div class="mb-4 flex flex-col lg:flex-row">
+          <div class="mb-8 flex flex-col lg:flex-row">
             <img
               class="mb-4 mr-6 h-12 w-12 rounded-lg lg:h-20 lg:w-20"
               height={80}
               src={host.img}
               width={80}
-              alt=""
+              alt={`${host.name} - Overcommitted podcast host`}
             />
 
             <div>
@@ -87,5 +271,50 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         ))
       }
     </div>
+
+    <!-- FAQ Section -->
+    <section class="mb-12 mt-16">
+      <h2 class="section-heading-underlined mb-6">Frequently Asked Questions</h2>
+      
+      <div class="space-y-6">
+        {faqs.map((faq, index) => (
+          <details class="group rounded-lg border p-4 dark:border-dark-border" open={index === 0}>
+            <summary class="cursor-pointer list-none font-bold text-light-text-heading dark:text-white">
+              <span class="flex items-center justify-between">
+                {faq.question}
+                <span class="ml-2 transition-transform group-open:rotate-180">▼</span>
+              </span>
+            </summary>
+            <p class="mt-3" set:html={
+              faq.question === 'What topics do you cover?' 
+                ? faq.answer + ' Check out our <a href="/topics" class="underline hover:text-ctp-mauve">Topics page</a> to browse episodes by category.'
+                : faq.question === 'How can I be a guest on the show?'
+                ? faq.answer.replace('contact page', '<a href="/contact" class="underline hover:text-ctp-mauve">contact page</a>')
+                : faq.answer
+            } />
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="mt-16 rounded-lg bg-gradient-to-r from-ctp-mauve/20 to-ctp-pink/20 p-8 text-center dark:from-ctp-mauve/10 dark:to-ctp-pink/10">
+      <h2 class="mb-4 text-2xl font-bold text-light-text-heading dark:text-white">Join the Conversation</h2>
+      <p class="mb-6">
+        Love what you hear? Here's how you can support the show and connect with us:
+      </p>
+      <ul class="mb-6 space-y-2">
+        <li>⭐ <strong>Rate and review</strong> on Apple Podcasts or Spotify</li>
+        <li>📢 <strong>Share episodes</strong> with your friends and colleagues</li>
+        <li>💬 <strong><a href="https://discord.gg/d9gZyYuqKd" target="_blank" rel="noopener noreferrer" class="underline hover:text-ctp-mauve">Join our community</a></strong> of 140+ engineers on Discord</li>
+        <li>🎙️ <strong>Want to be a guest?</strong> We'd love to hear from you!</li>
+      </ul>
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center rounded-full bg-light-text-heading px-6 py-3 font-bold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl dark:bg-ctp-mauve dark:hover:bg-ctp-pink"
+      >
+        Get in Touch
+      </a>
+    </section>
   </div>
 </Layout>
