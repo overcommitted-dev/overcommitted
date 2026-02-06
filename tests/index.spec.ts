@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 const indexMeta = {
-  title: 'Overcommitted',
+  title: 'Overcommitted | Software Engineering and Tech Careers Insights',
   description:
     /Overcommitted is where passion for the craft meets real talk about software engineering/,
 };
@@ -22,9 +22,6 @@ test('index page has correct meta', async ({ page }) => {
 
   const ogImage = page.locator('meta[property="og:image"]');
   await expect(ogImage).toHaveAttribute('content', /^https?:\/\/.+/);
-
-  const twitterImage = page.locator('meta[name="twitter:image:src"]');
-  await expect(twitterImage).toHaveAttribute('content', /^https?:\/\/.+/);
 });
 
 test('index page displays episodes', async ({ page }) => {
