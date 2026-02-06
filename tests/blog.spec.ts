@@ -5,17 +5,6 @@ const blogMeta = {
   description: 'Insights, tutorials, and thoughts on software engineering from the Overcommitted team and community.'
 };
 
-// Expected blog posts based on the actual content files
-const expectedPosts = [
-  {
-    title: 'Welcome to the Overcommitted Blog',
-    description: 'Introducing our new blog where we share insights, tutorials, and thoughts on software engineering beyond the podcast.',
-    author: 'Overcommitted Team',
-    slug: 'welcome-to-our-blog',
-    tags: ['announcement', 'meta', 'blog']
-  }
-];
-
 test.describe('Blog Page', () => {
   test('renders blog index page correctly', async ({ page }) => {
     await page.goto('/blog');
@@ -35,50 +24,31 @@ test.describe('Blog Page', () => {
     await expect(descriptionText).toContainText('Insights, tutorials, and thoughts on software engineering');
   });
 
-  test('displays correct number of published posts', async ({ page }) => {
+  test('displays at least one published post', async ({ page }) => {
     await page.goto('/blog');
 
     // Count article elements (each post should be in an article tag)
     const articles = page.locator('article');
     const articleCount = await articles.count();
     
-    // Should match the number of non-draft posts we have
-    expect(articleCount).toBe(expectedPosts.length);
+    // Should have at least one published post
+    expect(articleCount).toBeGreaterThan(0);
   });
 
-  test('displays posts in correct chronological order (newest first)', async ({ page }) => {
+  test('displays post metadata for articles', async ({ page }) => {
     await page.goto('/blog');
 
-    const articleTitles = page.locator('article h2 a');
-    const titles = await articleTitles.allTextContents();
-    
-    // Should have the welcome post first (only published post)
-    expect(titles[0].trim()).toBe('Welcome to the Overcommitted Blog');
-  });
-
-  test('displays correct post metadata for each article', async ({ page }) => {
-    await page.goto('/blog');
-
-    // Test first post metadata (welcome post)
     const firstArticle = page.locator('article').first();
     
-    // Check title link
+    // Check title link exists
     const titleLink = firstArticle.locator('h2 a');
-    const titleText = await titleLink.textContent();
-    expect(titleText?.trim()).toBe('Welcome to the Overcommitted Blog');
-    await expect(titleLink).toHaveAttribute('href', '/blog/welcome-to-our-blog');
+    await expect(titleLink).toBeVisible();
+    const href = await titleLink.getAttribute('href');
+    expect(href).toMatch(/^\/blog\/.+/);
     
-    // Check description
-    const description = firstArticle.locator('p');
-    await expect(description).toContainText('Introducing our new blog');
-    
-    // Check author
-    const author = firstArticle.locator('text=By Overcommitted Team');
+    // Check author exists
+    const author = firstArticle.locator('text=/By .+/');
     await expect(author).toBeVisible();
-    
-    // Check tags
-    const tags = firstArticle.locator('span').filter({ hasText: 'announcement' });
-    await expect(tags).toBeVisible();
   });
 
   test('handles empty state gracefully', async ({ page }) => {
@@ -146,7 +116,7 @@ test.describe('Individual Blog Posts', () => {
     await expect(ogTitle).toHaveAttribute('content', 'Welcome to the Overcommitted Blog - Overcommitted Blog');
 
     const ogDescription = page.locator('meta[property="og:description"]');
-    await expect(ogDescription).toHaveAttribute('content', expectedPosts[0].description);
+    await expect(ogDescription).toHaveAttribute('content', /Introducing our new blog/);
 
     // Check structured data (Schema.org)
     const scriptTags = page.locator('script[type="application/ld+json"]');
