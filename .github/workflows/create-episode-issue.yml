@@ -93,7 +93,7 @@ jobs:
             ### Phase 3 — Content Generation (Claude)
 
             > Open the [Overcommitted Production Claude Project](https://claude.ai/projects) — context loads automatically.
-            > Full prompt in [`docs/episode-assets-prompt.md`](../blob/main/docs/episode-assets-prompt.md).
+            > Full prompt in [docs/episode-assets-prompt.md](../blob/main/docs/episode-assets-prompt.md).
 
             - [ ] Open the **Overcommitted Production** Claude Project
             - [ ] Upload full episode transcript
@@ -122,13 +122,28 @@ jobs:
 
             ---
 
-            ### Phase 4 — Podcast Publishing (Riverside)
+            ### Phase 4 — Canva Assets
 
-            - [ ] Schedule full episode for **${release} at 10 AM**
+            **Thumbnail** — [Open Canva Thumbnail Project](https://www.canva.com/design/DAGyyqr-a7Q/SvIxo1BwFsgbl6lrLgrcBg/edit)
+            - [ ] Add guest headshot
+            - [ ] Add episode title text
+            - [ ] Download as PNG → use for YouTube, LinkedIn, Bluesky, TikTok cover
+
+            **Episode Artwork** — [Open Canva Episode Artwork Project](https://www.canva.com/design/DAG0HeJU-Ok/qguP2HipLKthx1qOsznkrQ/edit)
+            - [ ] Add guest headshot
+            - [ ] Add episode title text
+            - [ ] Download as PNG → use for Spotify / podcast artwork in Riverside
 
             ---
 
-            ### Phase 5 — YouTube Publishing
+            ### Phase 5 — Podcast Publishing (Riverside)
+
+            - [ ] Upload episode artwork (from Canva)
+            - [ ] Schedule full episode for **${release} at 12 PM**
+
+            ---
+
+            ### Phase 6 — YouTube Publishing
 
             **Full Episode**
             - [ ] Upload video to YouTube Studio
@@ -136,8 +151,8 @@ jobs:
             - [ ] Add description
             - [ ] Add keywords
             - [ ] Upload SRT captions
-            - [ ] Set thumbnail
-            - [ ] Schedule for **${release} at 10 AM**
+            - [ ] Set thumbnail (from Canva)
+            - [ ] Schedule for **${release} at 12 PM**
 
             **Clip 1 (YouTube Shorts)**
             - [ ] Upload clip with "Episode just released today" copy
@@ -153,21 +168,37 @@ jobs:
 
             ---
 
-            ### Phase 6 — Social Media (LinkedIn + Bluesky)
+            ### Phase 7 — TikTok Publishing
+
+            **Clip 1**
+            - [ ] Upload + add post copy + hashtags
+            - [ ] Confirm auto-captions generated
+            - [ ] Schedule for **${release}**
+
+            **Clip 2**
+            - [ ] Upload + add post copy + hashtags
+            - [ ] Confirm auto-captions generated
+            - [ ] Schedule for **${followup}**
+
+            - [ ] Copy TikTok auto-captions from both clips (for reuse in LinkedIn + Bluesky)
+
+            ---
+
+            ### Phase 8 — Social Media (LinkedIn + Bluesky)
 
             > 💡 Use Buffer to batch-schedule all posts in one session.
 
             **Full Episode — Release Day (${release})**
-            - [ ] LinkedIn post (10am)
-            - [ ] Bluesky post (10am)
+            - [ ] LinkedIn post
+            - [ ] Bluesky post
 
             **Clip 1 — Release Day (${release})**
-            - [ ] LinkedIn post + TikTok video (5pm)
-            - [ ] Bluesky post + TikTok video (5pm)
+            - [ ] LinkedIn post + TikTok captions
+            - [ ] Bluesky post + TikTok captions
 
             **Clip 2 — Follow-Up (${followup})**
-            - [ ] LinkedIn post + TikTok video (10am)
-            - [ ] Bluesky post + TikTok video (5pm)
+            - [ ] LinkedIn post + TikTok captions
+            - [ ] Bluesky post + TikTok captions
 
             ---
 
