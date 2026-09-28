@@ -89,13 +89,23 @@ The url to the RSS feed where your podcast is hosted.
 rssFeed: 'https://rss.art19.com/whiskey-web-and-whatnot';
 ```
 
-#### Setting up the contact form
+#### Setting up the contact and submission forms
 
-The contact form uses [Web3Forms](https://web3forms.com/) to handle form submissions. To set it up:
+The contact form and the listener submission forms (`/honest-answers` and
+`/root-cause`) use [Web3Forms](https://web3forms.com/) to handle form
+submissions. To set them up:
 
 1. Go to [web3forms.com](https://web3forms.com/) and get a free access key
 2. Copy `.env.example` to `.env`
 3. Add your access key to the `PUBLIC_WEB3FORMS_ACCESS_KEY` variable in `.env`
+4. Restart the dev server, since Astro only reads `.env` at startup
+
+Without a key, submitting any of these forms returns "Form must include a
+'form_id' (in path) or 'access_key' field" from Web3Forms.
+
+Submissions from each form arrive with a distinct subject line (`Honest
+Answers submission`, `Root Cause submission`), so they can be filtered apart
+in the inbox.
 
 Web3Forms will send form submissions to your email and provides a dashboard to manage them.
 
