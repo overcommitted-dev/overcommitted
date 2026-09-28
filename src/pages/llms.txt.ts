@@ -82,6 +82,8 @@ Overcommitted is a weekly software engineering podcast hosted by software engine
 - [Blog](${SITE}/blog): Written posts from the hosts.
 - [Sponsor](${SITE}/sponsor): Advertising and sponsorship information.
 - [Contact](${SITE}/contact): Reach the hosts or pitch yourself as a guest.
+- [Honest Answers](${SITE}/honest-answers): Submit an anonymous workplace, career, or technical situation for the hosts to answer candidly on the show.
+- [Root Cause](${SITE}/root-cause): Submit something you have accepted as just how software works, for the hosts to investigate on the show.
 
 ## Listen & subscribe
 
