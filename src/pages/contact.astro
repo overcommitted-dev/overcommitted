@@ -19,6 +19,16 @@ console.log('Access key defined:', !!accessKey, 'Length:', accessKey?.length, 'F
       Reach out here and we'll be in touch soon!
     </p>
 
+    <p class="mb-8">
+      Want something covered on a specific segment? Send an anonymous situation
+      to <a class="underline hover:text-ctp-mauve" href="/honest-answers"
+        >Honest Answers</a
+      >, or tell us what to dig into on <a
+        class="underline hover:text-ctp-mauve"
+        href="/root-cause">Root Cause</a
+      >.
+    </p>
+
     <ContactForm client:load accessKey={accessKey} data-has-key={!!accessKey} data-key-preview={accessKey?.substring(0, 8)} />
   </div>
 </Layout>

@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SubmissionForm from './SubmissionForm';
+import type { Segment } from '../data/segments';
+
+export interface Props {
+  description: string;
+  segment: Segment;
+}
+
+const { description, segment } = Astro.props;
+
+const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
+---
+
+<Layout title={segment.pageTitle} description={description}>
+  <div class="relative z-10 px-8 lg:px-18">
+    <h1
+      class="mb-4 text-2xl font-bold text-light-text-heading lg:mb-6 lg:text-5xl dark:text-white"
+    >
+      {segment.heading}
+    </h1>
+
+    <p class="mb-8 max-w-3xl">{segment.pitch}</p>
+
+    <div class="mb-8 max-w-3xl rounded-lg border p-6 dark:border-dark-border">
+      <h2 class="section-heading mb-4">{segment.promise.heading}</h2>
+      <ul class="flex list-disc flex-col gap-2 pl-5">
+        {segment.promise.points.map((point) => <li>{point}</li>)}
+      </ul>
+    </div>
+
+    <p class="mb-8 max-w-3xl">
+      <span class="section-heading">{segment.example.label}</span>
+      <span class="mt-2 block italic">&ldquo;{segment.example.prompt}&rdquo;</span>
+    </p>
+
+    <div class="max-w-3xl">
+      <SubmissionForm client:load accessKey={accessKey} segment={segment} />
+    </div>
+  </div>
+</Layout>
