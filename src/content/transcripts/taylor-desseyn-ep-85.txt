@@ -1,0 +1,572 @@
+Erika (00:00)
+Welcome to the Overcommitted Podcast, your weekly dose of real engineering conversations. I'm your host today, Erica, and I'm joined by
+
+Brittany Ellich (00:07)
+Hey, I'm Brittany.
+
+Erika (00:08)
+We met while working on a team at GitHub and quickly realized we were obsessed with getting better at what we do. So we decided to start this podcast to share what we've learned. We'll be talking about everything from leveling up our technical skills to navigating your professional development, all with the goal of creating a community where engineers can learn and connect. Today on Overcommitted, we are joined by Taylor Desane. Taylor has spent 15 years in tech recruiting, hosts guidance 2.0, another fantastic podcast.
+
+and is VP of Global Community at Ronstad. so job postings are climbing and plenty of engineers still can't get a reply. We are asking him why and what to do about it this week. So welcome Taylor. Welcome to the podcast.
+
+taylor desseyn (00:54)
+What's up ladies? Pumped to be here. Happy Wednesday.
+
+Erika (00:59)
+Happy Wednesday. Yes.
+
+Brittany Ellich (01:01)
+Happy Wednesday.
+
+Erika (01:03)
+to kick us off, we're gonna ask you what we ask everyone. What's one thing you're currently building or obsessed with learning right now?
+
+taylor desseyn (01:11)
+I'm building an entire content ecosystem with one personal AI agent, which is very fascinating. So I I I don't know what's happened. So I I've talked about this recently in some interviews I've done. Like when c chat chat GPT and Claude came out, I was like, this cool. But like it just didn't click with me. Like I still wanted things to just do the thing. Like I still didn't want to like just have to prompt it all the time.
+
+So I don't so obviously with this agentic kind of thing that's happening right now, and especially somebody who's like, I don't have a I'm very I'm like technical, non-technical. So like having just something that can work out of a text message is great for me. And so shout out tab. I use tab. It's still like it's still invite only. but basically I've set up like 80 automations. it's I've cut up
+
+I've completely rebranded my personal website. I've rebranded my Guidance Council two point podcast and I put out four hundred and sixteen pieces of content last week. And when I say me, I'm saying my bot. and and it's currently running right now, DMing everybody in my inbox with a message I created to get people to subscribe to my newsletter. So
+
+Erika (02:16)
+I did text your AI agent to help prepare for this podcast. Yeah. It's yeah. Go ahead.
+
+taylor desseyn (02:18)
+Did you? Nice. Tabot. Tabot. yeah,
+
+I launched that too. That's cool. Yeah, yeah, yeah. I yeah. So I was like, you know what? Like, I I mean, I have so many people ask me, like, can I have 15 minutes every time? Can I have 15 minutes? I was like, listen, I would love to talk to everybody. I really would. But the reality is, is
+
+I just don't time. So I created a personal job search AI coach. So basically it's got 15 years of data in it for me. All every podcast, all 600 episodes, every conference talk, every everything. And you can text it.
+
+so yeah, so people use it. I've had people from like all over the globe use it. It's pretty cool.
+
+Erika (02:49)
+It's great. Yeah. I mean, for procrastinators like me who was prepping this yesterday, it was very helpful in
+
+taylor desseyn (02:54)
+Yeah. Yeah.
+
+Erika (02:57)
+get getting as close as I could to actually talking with you. So we'll link that in the show
+
+taylor desseyn (03:01)
+Yeah. Yeah.
+
+Erika (03:02)
+notes too. well cool. You have been talking a lot recently about AI assisted job searching for software engineers.
+
+but let's kind of start with one of the big problems that a lot of people face where they get this idea that they want to look for a new job. and then somewhere along the way they get stuck. so, you know, some of this comes from a feeling that the job market is really bad. But you've actually said that postings are high right now compared to a three-year look back.
+
+so
+
+why does it still feel so bad out there for engineers who are looking?
+
+taylor desseyn (03:38)
+Yeah. I think I think there's there's a layers to break down here. First off, I think doom and gloom does way better on the internet than positivity, right? I just it it just it is what it is. and so I think that's the first thing to keep in mind. I think big tech controls the headlines. the reality is if someone's gonna pick up Microsoft sending packages to sixty thousand employees more than
+
+you know, a a startup raising around a fifty five million dollar series A and hiring a bunch of people. and so also take that in consideration. I think another thing take in consideration is that I think
+
+a lot of companies don't know what they want when they're hiring for AI. I think most don't.
+
+Know what they want. And then I think there's a lot of engineers who don't want to either try it or get started or actually use it appropriately. when I say appropriately, I mean just like in terms of applying it to their day-to-day work. And I think I think that's causing a lot of issues. Ronstadt did just recently put out a report, and again, Ronstadt is technically on paper the world's largest staffing company as a whole. the tech practice is I think top five for sure, I think maybe top three.
+
+but their general state of the market was this is the first like positive quarter we've had in a while.
+
+and so you know, things are getting better. but I think the biggest complaint is j jobs are being posted. It feels like no one's getting hired. That's because a lot of hiring managers already have who they want to hire in their back pocket when HR posts the role. Because the reality is is like, you know, I interviewed Dan DeGange on my podcast a few weeks ago, and he was kind of working through his network and he hit up one manager. I f I think it was Figma, but I I could be wrong. And the manager was like, I'm so glad you got.
+
+referral because I have fifty referrals in my inbox and I haven't even gotten to the job postings yet. So it's just
+
+it's just a mess right now. It's just it's just a mess.
+
+Erika (05:21)
+Yeah. Yeah. this rang true with me, the three stages of rejection that you might experience where
+
+you don't get a reply, maybe you get a reply, but you don't get an interview, and then maybe you get an interview but you don't get an offer. so yeah, what does each of those stages mean to you and how do engineers kind of think about like moving forward in each of those stages?
+
+taylor desseyn (05:42)
+But isn't there like those a seven stages of grief where it's like acceptance and all that stuff? Like I think that's like it's so interesting. Like, how do you stay positive? Like, what do you define as success in the job search? Right. I think right now the reality is is like you need to be you need you need to be like hawking. When I say hawking, I mean like
+
+on LinkedIn and on X or on Blue Sky or like like the jobs are being posted, but they're not being posted in the traditional methods. Right. I think now more than ever, I think recruiters are like really kind of your straightest line of sight to get through the riffraff. it everything is niching down right now. What I mean by that is like there's so much there's there's so much
+
+Like the auto appliers, you know, and and again, I always preface this. I'm not looking for a job, but I've tried them to see if it works, right? I haven't gotten one interview request. And I've tried a lot of them. Right. Now I know my background is a little nuanced, like I'm not just a straightforward developer, but the reality is is that
+
+Is is you need to be very focused on and you need to be very focused on high lever activities in your job search, right? So to kind of break down your question is like so when you when you get like laid off, right? I think it's like going opening up your phone and texting people and calling people.
+
+This is your warmest lead contact right here. Like we're always like, go to LinkedIn and message a bunch of strangers. Sure, that's a that's a strategy, but open up your phone book. Like I got the job at Ronstadt Torque because I texted my then CTO, or the CTO of Torque, he's still CTO, and be like, Hey, I'm I'm looking. Who do you know? And he goes, Well, imagine that. I'm actually hiring for a head of community, right? So
+
+That's the first thing. I think I think when it comes to interviews, like the interviews are jacked. Like, I think we're about to go through like the most fundamental burned down breakdown of interviewing that we've ever experienced. Right. I know Debbie o O'Brien who posted she like, you know, DevRel, very highly regarded. She posted a ex post that went viral, like just like that she like bombed the interview and
+
+It's like, why are we still doing technical interviews? And it's like my big thing is like at this point it's all proof of work. Like to me, like coding has been commoditized.
+
+Anybody can do it. I can do it. You don't want me to do it, but I could do it, right? So it's like for me, it's like, what have you done? What have you done to move the needle? And that's the things that you need to be actively preparing for in your interview. How have you moved the needle? Not that you did this one widget, but how did that widget move the needle for revenue or growth or anything? Everybody's looking for growth right now. Everything's looking for growth. So how are you impacting growth?
+
+and then also too when it comes to to offers and kind of that stage, like if if you're taking a role, it it this is I I was I was literally texting with a a a staff engineer last week. He texted me, he's a conference speaker, and he goes, Hey, I'm looking at this company, what are your thoughts? And I was like, Well, I know some people there, I think they like it. And I was like, But that doesn't matter. I was like, You need to take an offer right now that is going to catapult you continually into the AI space.
+
+And you cannot take a step back. And so I think like I hopefully they answered your question, but those are kind of like the three things to kind of think about right now in today's market.
+
+Brittany Ellich (09:07)
+Yeah, I know there was recently a a a post that went pretty viral too that Anthropic has like dropped the coding interview. And I'm wondering if this is like the canary in the coal mine that like this is not stop doing them. Yeah.
+
+taylor desseyn (09:15)
+Yeah. Yo, yeah, yeah, yeah. No, there's no coding interviews anymore. Yeah, yeah, yeah. Like
+
+it won't be like to me, I think interviews, and again, I I spoke a lot about interviews and how companies should structure interviews and because again, I've helped scale hundreds of engineering teams and and worked with their CTOs and VPs of Inge to to to work through an actual appropriate interview process, it's all gone. Like to me now it's like, give me your portfolio. What have you done?
+
+Let's talk through to make sure you're not weird and let's hire you. Like that's that's where it's gonna be. but I do think it's gonna take a few more years to get.
+
+Erika (09:53)
+So how would like a junior engineer or an entry level engineer prove their worth?
+
+taylor desseyn (10:00)
+So here's my hot take. Ready? I don't think junior developers are going to really be able to get a job. I think you have to, if you're a junior engineer, you need to build and get a handful of people using your app and show that you can do something and then level into an organization as a mid-level engineer. now, do I think again, these are a little bit of hot takes here. I'm a little spicy this afternoon, right? I've had a bunch of iced coffee. But for me, like
+
+The so the the there's one and I'm pulling from specific specific examples here. There's one guy that I helped mentor. he went to the University of Tennessee, Knoxville. and he messaged me two years ago, wanted to give up. He was like, I just I don't know what to do. What should I do? I said, listen, I said, you need to take the last two years of your coursework, do the coursework, don't go out at night, don't don't party. You need to be building, building, solving.
+
+actual problems using new technology, experiment, experiment, experiment. Well he hit me up a year and a half later. I actually forgot about him, right? His name's Jackson. Jackson, if you watch this, I'm sorry. and but like Jackson messaged me and Jackson was like, hey, hey bro, take a look at my resume. And I looked at it, I was like, holy cow, this thing's insane. Like newest tech. He'd built like two or three startups to solve problems within like the Tennessee ecosystem, University of Tennessee ecosystem.
+
+And he's coming out of college leveled up, in my opinion, as a two year engineer now, two or three year engineer. That is the new way of doing things. Heck, I even built some sort of AI personal assistant bot and I don't know how to code at all. Like there's no excuse anymore. So do I think junior devs are going to completely be extinct? I don't think so. I think companies are still gonna hire them, and I still think it's super important to hire junior devs. But I think as a whole,
+
+I think as a junior developer, you need to build something on your own, get people to use it, iterate it, and then walk into a company as more of a upper junior developer, lower mid.
+
+Brittany Ellich (11:55)
+Yeah, I've been thinking about this a lot recently because I'm working on a a talk for React Summit in like two weeks, talking about like how to get to senior. Yeah, Roxy's gonna be too. It's gonna awesome. yes.
+
+taylor desseyn (12:01)
+I love it. I think Roxy's speaking there too. I think Roxy's speaking there. Yes. Yes. Our queen. Our queen.
+
+Brittany Ellich (12:08)
+Very excited. yeah, but like I feel like there used to be this like these concentric circles of like F of impact you need to be able to have based on your role as a developer. And like as a junior developer, it was like you need to just like code essentially. Senior
+
+taylor desseyn (12:20)
+Yeah.
+
+Brittany Ellich (12:21)
+developer, you need to be able to like
+
+own a project and then staff, you need to be able to like oversee multiple projects. And I think that those are like collapsing now, where like actually
+
+taylor desseyn (12:26)
+Sure. Correct. Everything's collapsing.
+
+Brittany Ellich (12:30)
+to get like senior engineers now need to be able to own multiple projects and do what staff engineers used to do. And everybody starts
+
+taylor desseyn (12:36)
+Yeah.
+
+Brittany Ellich (12:37)
+out owning a project from the get-go.
+
+taylor desseyn (12:39)
+Yeah, yeah, yeah.
+
+Brittany Ellich (12:41)
+and yeah, I think it's being able to prove that like you're not just able to code, you can like project manage and product manage because like that's more of a skill now.
+
+Basically just building a thing successfully. Yeah.
+
+taylor desseyn (12:52)
+It yeah, yeah.
+
+So I work alongside shout out Brianna Holmes. she's my better half at work. And she is, I mean, between Roxy and Brianna Holmes, I just I'm super grateful to work with those ladies. And Brianna and I had a crazy conversation two days ago around just agentic workflows and marketing and community and like how do we optimize agents and
+
+If you would have told Taylor like a year ago I was gonna have that conversation, like me and Bree were like giggling on the call because we were like, what is going on? Because like now, like you need to be like, I hate the word 10x, right? Because there was this thing on it X like a while ago around 10X engineers. We're kind of there now. Like I kind of feel like we're there now. Like you kind of need to be like a 10x marketer. I am editing videos from my cell phone.
+
+And they look great. Like there's just no excuse anymore. And so, like, yeah, that's that that's just where you need to be. Like, like if you're just gonna be the engineer that like, you know, sits in a corner, doesn't talk to anybody and doesn't use agents and doesn't use AI because you think it's hocus pocus, like I don't think you're gonna find a job in two two years, three years, maybe a year.
+
+Who knows?
+
+Erika (14:04)
+Well let's get into some of the mechanics of the job search. starting with something you've talked about, the career.md. So
+
+taylor desseyn (14:11)
+Mm-hmm.
+
+Erika (14:12)
+for anyone who hasn't seen this, kind of tell us what actually goes into it
+
+taylor desseyn (14:16)
+Yeah.
+
+Erika (14:17)
+and why does it matter?
+
+taylor desseyn (14:18)
+Yeah, so I went through an eight-week series on my YouTube back last month or two months ago around just how to it how to use it was more focused on like Chat GPT and Claude, but then with this like boom of personal AI assistance, I've kind of quickly tied that into my talk. So my talk I've given recently, both All Things Open and Momentum Developer Conferences in Cincinnati was
+
+ChatGPT and Claw to the brains and your personal AI assistants are your hands and your fingers, right? I know there's a lot of body parts between your brain and your hands and fingers, but just for the sake of this, let's just go with that, right? So you need to like brain dump everything into a crew MD doc. And like actually, like I want to do it. I haven't done it fully yet. Like I did it like live really fast, but like everybody listening to this who potentially be the job, and actually, I don't care if you're not a job search. Like like Brittany, Erica, you should do it to today.
+
+Open up and then like go voice mode and be like, hey, you don't know anything about me. Start interviewing me. I want to create an entire career MD doc about my entire career. And then what you do is you set this thing up as your brain, you attach your personal AI assistance. These personal AI assistants then start doing the outreach, the DMs, but it all ties back to your career MD doc, which has all the data, right? So that this is the thing. People are like, it's AI slop, it's AI slop. It's what you feed the AI.
+
+That makes it slop. So if you're feeding it actual relevant data of your career and what you've done and it's doing the outreach on your behalf with actual data you've done, that's where it gets crazy. and and and it's helped me, you know. I reach out for people on my podcast, like and I was able to kind of get some guests I never thought I would be able to get, but it was pulling everything and doing the outreach for me. So it's just a crazy time right now. So yes, career MD, go through your entire career, step like one by one.
+
+Position by position, wins, what you've done, how you've moved the needle, just get it all in there. And then what you can start doing is you can start using AI to customize your resume for the job you're applying to, but it has all the data to be able to do it, so it doesn't make up any numbers.
+
+Erika (16:18)
+So how do you make it sound like you and not like everyone else's?
+
+taylor desseyn (16:22)
+So if you have this career MD doc where it pulls everything out that's actually you, your actual numbers, your actual data, and then it builds your resume that you should standardize a template for, by the way. I think that's another thing is these
+
+AI generated resumes look terrible, right? You need to standardize a template and then say, hey, s keep this template, plug in the information, and as it's contextually for the role, review it and then send it out. Now you're probably like, listen, you're like, Taylor, that seems like a lot of steps. It is, but it's a lot less time than you handwriting every single resume being submitted, right? So that's kind of that looper there.
+
+Brittany Ellich (17:06)
+Mm. You mentioned that you use this for this like workflow for like reaching out to people to get on your podcast. Do you recommend that people who, you know, are engineers, they're happy in their job. Like what are are they supposed to be reaching out to people? Do you think they should still be building a network and yeah. What does that look like?
+
+taylor desseyn (17:19)
+Yes. Every day. Every day. Every day. Right now in this market.
+
+Yeah. You should be. Now, I think there's some ways to do this. I think I have to I I'm gonna go on record and say it's a little spammy, but I still think it's a good tool, is Borty AI. Borty AI is a little thirsty on X, but it's it's it it's it's it's a networking tool. And you can plug in your information.
+
+And tell it what you're looking for. And then it basically does the searching and scraping for you. And then and then it makes an introduction. So it like pings the person, the other person, say, hey, Taylor's interest in speaking with you. This is Taylor's background. Then it pings me and says, This is you know Britney's background. Y'all should meet. And then it connects us. I think it's pretty cool. I don't know how they're making any money, but I think it's a cool tool. And so what I would say is use a boardy.
+
+you know, in full transparency, I'm gonna roll out that with mine, but it's just people I know. I haven't gotten around to that yet, but I I I want to get to that. So it's like, how do you get to know Taylor's ecosystem? But for me, you need to be so if you're happy where you're at, I would say you still need to be talking to one to two people a week. And when I say talking, I mean like somebody posted a role that looks like it could be interesting to you, right? But you're happy. I don't care.
+
+You could be very sad tomorrow. You know what I'm saying? So, like I would message that person and be like, hey, I I'm cool with where I'm at right now, but like this role looks kind of interesting. Would love to chat more, right? nine out of 10 times it's not going to go anywhere. But the reality is the effort you do today is not going to start helping you until six to twelve months from now. What most people think is they can start like when they get laid off, then they start networking.
+
+There's a reason why most people job search takes six to twelve months. Why? What did I just say? It takes six to twelve months of energy to find a job. So if you're starting to network now, I mean, there's a reason why both my job searches ended within ninety days.
+
+So you so now it so then if you're actively looking for a job, you should be loading up your calendar. You should turn into a recruiter salesperson. You should be having ten to fifteen conversations a a week. Right. and I know that's a lot for especially introverts, but that's just what you have to do right now.
+
+Erika (19:30)
+Yeah, that definitely rings true. And I mean, I think we've talked on this podcast a little bit about like building your personal brand and where the line is between that feeling kind of gross and like insincere and where it feels like something that's coming from a place of really loving what you do. And
+
+taylor desseyn (19:50)
+Mm-hmm.
+
+Erika (19:52)
+I feel like that's where my mind goes here of
+
+As an introvert, you know, talking to
+
+taylor desseyn (19:56)
+Yeah.
+
+Erika (19:57)
+talking to one or two people a week, you know, is is a big ask. But obviously I love doing it on this podcast because I'm always so interested in conversations.
+
+taylor desseyn (20:05)
+Well, you're already doing it because you have the podcast.
+
+I think everybody should have a podcast. My hot take, I think everybody should have a podcast. Like if you are a Java developer, I would literally just talk to other Java developers every week. If you are a if you are trying to get into AI ML, I would literally just start to like talk to a bunch of ML engineers. Hey, what what are you doing? What do you like you what I'm saying? Like, I think I think if everybody live streams with
+
+A 15 minute live stream with some new person and just talk to them, get to know them, and end of the live stream, I think they would find a job within 90 days. I truly think so. I truly think so.
+
+Erika (20:40)
+Mm. Yeah.
+
+taylor desseyn (20:42)
+But the reality is that you have to be contextual, right? So, you know, you know, so Erica, like I'm not, I'm not saying like slide into a stranger's DMs and be like, we should talk. Like, I'm not, I'm not saying that. What I'm saying is, is you see Pete Johnson post something about
+
+A technology that you're interested in using, you message Pete Johnson, be like, hey Pete, I've actually been wanting to get involved with this technology. Would love to chat with you for like 10 minutes to get more understanding of it. That's the type of context I'm looking for. But to do that, you kind of have to live on social media. Like I like I have I'm I've I'm fully pilled on using social media for networking. And it's worked. It's worked. I I you know.
+
+I don't post I post my family sometimes, but the reality is is I post to network. And I think if you can turn social media into that, I think it could be very effective.
+
+Erika (21:37)
+Okay, so that's sort of like some of the preparation side.
+
+as far as letting the assistants do the work,
+
+So we've kind talked a little bit about, you know, like automating this to the point where like it's sending messages on your behalf, you're reviewing it.
+
+taylor desseyn (21:52)
+Yeah.
+
+Erika (21:53)
+how do you how do you kind of avoid this spray and pray? That's kind of like a term where it's like you just send out as many applications as possible and then just wait and see what happens. so
+
+you know, like is that the right approach or is is there a better way to go about this? that's a little bit more strategic?
+
+taylor desseyn (22:15)
+Yeah, I mean you shouldn't be spraying and praying, period. R right. I mean, you know, like that's such a terrible term. but like yeah, like like you shouldn't be. Like I my hot take is I would not apply to a job unless you know somebody at the company.
+
+I just wouldn't. you know, I think a really good cadence for job search is I would set watchers, right? So so you know, again, I use tab Pally's good.
+
+and and I told my dad this. Like my dad, he left he he was let go of his job after 10 years yesterday. He's in the restaurant industry.
+
+but I told my dad I was like, you should set up a watcher every day where it scans your LinkedIn, it scans your he doesn't use X, but like scan your LinkedIn on like any jobs that are posted or any anything on the internet.
+
+And he started to use it and he's gotten some converse. He's he's actually interviewing from those things. But so what I would do if especially in tech, I would I would hook in X and LinkedIn. And again, when it comes to security and data, I don't care. Like that's my hot take. I know I know a lot of people have thoughts on it. I don't really care. so for me, like LinkedIn download I have LinkedIn, I download all my LinkedIn data, download all my X data, it's all into my instinct.
+
+And basically what it does is it alerts me if anybody in my network like posts something I'm interested in, right? So like we do a lot of partnerships and in-person events and stuff. So it's like like we're looking at pay basically going to Seattle, Vancouver, maybe in Q1 next year to throw an activation. So I I got, I was like, hey, who do I know? Who have I DM'd in the last year? Right. So I was thinking I was like, all right, so so it sends me people I've DM'd in those locations in the last year. It's crazy. So I was like, all right, so how can people use this for the job search? So what I would do is set up a watcher.
+
+Like these are the type of roles I'm looking for. This is the salary bands. Don't message me if it's below or above or below the salary band or these skill sets. And and alert me if anybody in my network's actually posting jobs too. And so I would get it to feed a report to you every morning. Now I use Notion to tie all my agents together. So everybody has a shared document to work off of. So what I would do is I would get this agent.
+
+So do a scan every morning of the internet and or X and or LinkedIn and dump all that job criteria into your inbox on on Notion. And then you just go through it and you say yes, no, and then it'll go out and then I would prompt it and say, Hey, after reviewing all my notes, go find three people I'm either first or second degree connection with on LinkedIn and compose a DM based off my career MD file as it relates to the job, specifically solving their problems.
+
+So now, see what I did there, right? So the scan, the watcher, the notion, the crafting of the DMs before you even applied to the star method, as it relates to your career MD doc, as it relates to the job. That can all happen within like five minutes, which would take an entire day before AI, right? So, you know, people we have the wrong mindset. People are using AI to spam.
+
+Apply more. Uh-uh. Spam apply via the DMs. Use AI to get to the DMs faster. Use AI to start conversations faster in the DMs with people, the decision makers. That's where it's gonna make an impact, not mass applying.
+
+Erika (25:23)
+So, does it matter who you DM or is it just anybody who you are somewhat connected to?
+
+taylor desseyn (25:30)
+I mean, at the end of the day, if you're applying for an engineer role, it probably doesn't make sense to message Pam and accounting. Pam and Accounting won't be able to help. But, you know, what I would say, so what I would do is I would kind of go through kind of, and again, you have to prompt this stuff. Like, like I feel like people get frustrated, especially like the normies. Like, I consider myself a normie, right? Y'all are engineers. I am not an engineer, I'm a normie, right? And so, like, you know, we're we're trying to roll out some agency stuff on my team. And like
+
+People are getting frustrated, like, this is dumb. It just doesn't work. And it's like, no, no, no, no, it works. It doesn't work the first time. Let's not it's just like you hire an employee. The employee's not gonna do the right thing out of the box. You have to stick with it and prompt it. And so, like, I would work on you know different types of prompts. So, hey, if if there's a job that's posted and I'm a fit for and I don't have any first person s first person connections with the that that company.
+
+then go to find whoever the job poster was. If you can't find the job poster on LinkedIn, then send me all the engineering manager's contact information in their background and compare it with my background, see if there's any similarities in credit DM.
+
+And then that's what I'm saying. Like all that stuff really like like that loop gets tighter and tighter and tighter and tighter. So then all of a sudden, after two or three weeks working with it, you're sending out fifty, sixty DMs a week that are contextual to the people are hiring. That's where the magic happens.
+
+Erika (26:53)
+Okay. Well say you did all that and then you get to the point where you get an offer.
+
+taylor desseyn (26:55)
+Yeah. Yep.
+
+Erika (26:58)
+and you're negotiating negotiating the offer. so you have recommended bullet points over a full script for negotiation. Why do scripts tend to fall apart?
+
+taylor desseyn (27:09)
+I mean, the reality of the situation is negotiating is an art. Like you can go be an FBI negotiator. You know what I'm saying? Like, like that's a that's a whole other field. Most most people are not equipped to negotiate. What what I would do is I would throw an offer through Claude or Chat GPT.
+
+And so I would have a career MD, but then I would also have like a like a benefits doc. And I would I would kind of have some sort of compensation MD guide where it's like your current benefit breakdown, your current bonus breakdown, your current RSUs. If you have it, break down your current you like I like I would have a separate doc. So then when you get to the negotiation phase, you can like point the AI at that.
+
+And I and I would compare the entire offer side by side. So I would tell your agent, hey, go go check out my current, you know, benefit MD doc, compare it with this current offer. Let me know gaps, weaknesses, if I should take it, what's missing. And then with the reality is is if you're like, you know, if you're like create a script, like the negotiation is gonna go off the rails. It always does, right?
+
+So if you're tied, like like you know, if you have this script up and you're like talking to a manager, like Mr. Manager, I would like, and then like the manager throws a curve bot you, you're screwed. Right. And so I I I would get a bullet point of like specific things you want changed or edited. But again, going back to negotiation, always ask, or no, always give specific reasons why. Right. People are like, should I have it? Should I ask for a raise or should I ask for a counter? I'm like,
+
+Do you have a reason for it or do you just want more money? More money's great. More more money's awesome. Don't get me wrong. But in this market, like you have to back it up with something. Like, hey, I would like a a fifteen thousand dollar increase on this offer because I'm actually stepping away from my bonus in March. That's around fifteen thousand. Right. And and so giving actual specific things to back it up, I think is incredibly important. And then again, you can ask, you can ask,
+
+AI for that too. So yeah, don't don't script it out. Come with specific bullet points of what you want addressed and changed and specific reasons why and you should be good.
+
+and be
+
+the last person to talk. Always be the last person to talk. Like in sales, like with recruiting, I learned that, like for counter offers and negotiating. Like, hey, this company, you know, it's like, hey, I would like a fifteen thousand dollar raise because of XYZ. Shut your mouth.
+
+People don't like the silence.
+
+And so then you can start and then the other person, the other higher is and you're and you just sit there. Just sit there. And then they'll talk. I mean, they'll talk the entire time. The problem is,
+
+Erika (29:42)
+Mm-hmm.
+
+taylor desseyn (29:43)
+is we we talk ourselves down as humans, right? Like I want a fifteen thousand
+
+Erika (29:46)
+Mm-hmm.
+
+taylor desseyn (29:47)
+dollar raise. Why? Well, because of this reason. But, you know, I'm fine with 10,000 or 7,000. It's fine. It's like shut your mouth. Shut your mouth.
+
+Erika (29:52)
+Yeah. Yeah.
+
+Huh?
+
+Brittany Ellich (29:54)
+I have
+
+a dumb question, actually. Maybe dumb question. Is like
+
+taylor desseyn (29:55)
+Yeah, what's up? No, no no no dumb questions.
+
+Brittany Ellich (29:59)
+negotiating is horrifying.
+
+taylor desseyn (30:02)
+horrifying.
+
+Brittany Ellich (30:03)
+but like important. I'm curious, like, is hey, I'm getting a bonus from my comp my current company, or like I have this other offer that's worth this much. Like, is that actually valid enough reason to go to another company and be like, hey, I want this, I want this too here. because they might have a completely different like pay scale and a completely different.
+
+you know, leveling setup and
+
+taylor desseyn (30:24)
+Context is always great. Like and the reality is is like
+
+It's all context. So if you're just trying to get another offer to get a raise where you're at, that's a slippery slope. but it's human nature for people to want things that are in demand. Right? It's human nature. So I'm not saying lie.
+
+And say you have like you're interviewing at 10 companies and they all want you. I'm not saying that. But the reality is, is if somebody goes, Hey, where are you at in the interview process? Be well, I mean, I I'm actively interviewing. I have a I'm actively interviewing with a few companies. That few maybe two, but it's still a few companies. And so I and so I think like, but then also giving context, like I nothing's bad when it comes to salary. And if you're dealing with a recruiter, the more context you can give recruiter, the better, because they can go back and help negotiate that for you as well.
+
+I don't know if they answered your question. Does that answer your question? Okay. Okay.
+
+Brittany Ellich (31:20)
+Yeah, no, I think it does. Yeah. Yeah. I think yeah,
+
+knowing I feel like that is useful to know, like, yeah, if they know that they're you're doing multiple multiple rounds or something like that, then that's
+
+taylor desseyn (31:30)
+Yeah, companies
+
+I've I've seen
+
+I have seen companies move for people. When they change the verbiage of Yeah, I'm kind of interviewing two I have a few people I'm talking to. I've seen companies change how fast they move with that person.
+
+Erika (31:48)
+as VP of Global Community, you have a lot of experience with building and maintaining community. so
+
+This next question's about that maintaining part. how do you sort of maintain these relationships in all the follow-up that kind of comes with that? yeah, I guess from a sort of strategic and then a practical perspective,
+
+taylor desseyn (32:11)
+yeah, I don't do a great job with it. I mean you know, I mean the reality is you can't I think
+
+there's a way to see how many notifications you get a day on your phone. And I'm averaging like five hundred to a thousand notifications a day on my phone. And like between slacks and DMs and emails and discords and everything. And so like I can't get to everything. Like in full transparency, like I can't even get into the to the torque.
+
+community discord anymore. I just can't. Like and and I I just can't. I feel awful. Like so if anybody watches this from the community, like I apologize. I wish I had more time, but I don't. But this is where you gotta leverage AI, right? And this is why I'm just so bullish on these assistants is creating is creating a way for you to cover more ground with just yourself. Right. And so you know for me like I think
+
+I think everybody should have a database. And I'm not talking about just like your LinkedIn connections and stuff. I'm saying build a newsletter. Even practically what I'm doing, right? So I'm literally getting my AI agent to message like all my warm contacts on LinkedIn to invite them to my newsletter. It's a very soft ask, but I'm doing it. I have a database running right now that it also updates.
+
+On the back end of the CRM with all my people who I know who I'm connected with. I think the more we get into this day into the world of AI, I think human connections can be more important than ever. And especially with the job search and navigating your career, I think having direct pipelines or c communication with a person at a company is more important than ever. And so, like building something to keep in touch with people, even if you send, even if you're like Taylor, the thought of a newsletter sounds insane.
+
+Here's here's what's crazy, y'all. Use an AI agent. My AI agent transferred all of my data from Substack to Beehive in like 30 minutes, and and it writes my articles for me that I proofread every day. Like we're not we're not dreaming big enough with these these personal AI assistants now, or just AI in general. Like we're not dreaming big enough. And so like
+
+For me to answer your question succinctly, leverage AI to somehow get in touch with as many people as possible, right? I think you need to be posting online. I think you need to be, you need to have an email newsletter, even if it's updating about what your family did last week and your dog. I'll read it. You know, if I'm interested in what you do, Britney, like if you talked about potty training your kids on newsletter, girl, I'd read that in a heartbeat. Right? Share me your secrets. You know what I'm saying? So like.
+
+But like I think people want the human side of people now more than ever. And you need to leverage that for keeping up with your network. Right. And so that's why I have all these text things and these email things and the social media stuff. Like, you gotta be everywhere. And I think people listen to this, especially if you're like a developer who like just doesn't want to do the rat race, I get it. You don't have to do the rat race. My brother is a senior product leader at SeatGeek. He has done very well for his career and he does not post one single thing on the internet.
+
+He and I could not be the most opposite. I mean, literally the most opposite. And it's hilarious because a lot of people that Brand has worked, my my brother Brand has worked with in the past know me and they they're like, you're tailored. And Brandon like rolls his eyes all the time. So we could not be more opposite. He doesn't do conferences, doesn't do meetups, didn't do anything. Nothing. But he's really good at his job and he's been able to do very good. But the thing is, is that it just depends whatever your lane is. And if you are struggling to get a job and you are struggling to navigate your career.
+
+You need to start something in a way to leverage your connections for the next stage of your career.
+
+Erika (35:55)
+Awesome. Well, that is very inspiring. I definitely feel charged up about creating some of these files.
+
+so to wrap us up, I have prepared a fun segment that's completely on the opposite end of the spectrum of
+
+of AI of AI being helpful where we are all going to be the worst AI career coach ever. So I'm gonna give an example. and then after the example I'm gonna give some prompts and we get to be the AI that goes horribly wrong in responding to these prompts. so
+
+For my example, somebody might ask, how do I level up my interview skills? And a flattering AI might say, incredible question. Honestly, just asking it means you've already passed. Or it might hallucinate and say, a 2025 Stanford study found that a firm handshake over Zoom gives you 40% more offers. Or it might just be generally kind of blah and say something like, Be yourself.
+
+Communicate clearly and consider your options. All right, so no no answer is too out of the box here. just put on your worst robot hat and here we go. Okay. So the first prompt that we get to respond to is I sent 500 applications and got zero replies. What's wrong?
+
+taylor desseyn (37:09)
+Okay, we're supposed to come up with like a we're supposed to come up with like a bad answer.
+
+Erika (37:12)
+Yes. Yeah.
+
+taylor desseyn (37:16)
+real quick, do you guys know the Instagram guy that like does all the chat GPT responses? Have you seen him? This is like this
+
+Erika (37:22)
+No.
+
+Brittany Ellich (37:22)
+No.
+
+taylor desseyn (37:22)
+where he like basically makes fun and he talks like ChatGPT. So I'm trying to like put on my put on my Instagram that that that guy's it it's I think his title is like Chad GPT. I would say you're doing great. activity.
+
+like that is a thing that moves your job search. You should try to hit a thousand applications next week.
+
+Erika (37:44)
+Yeah. I think I would I would take the opposite end where I think my my AI would say something like, the job industry is is incredibly difficult with tech right now, especially considering the age of AI. like have you considered something else like plumbing?
+
+Brittany Ellich (38:02)
+just completely pivot careers.
+
+taylor desseyn (38:03)
+Yeah. Yeah yeah yeah. Have you considered leaving tech altogether?
+
+Erika (38:03)
+Yeah.
+
+Hmm.
+
+Brittany Ellich (38:08)
+Is it worth it? Yeah, I like
+
+Erika (38:09)
+Huh.
+
+Brittany Ellich (38:10)
+the the hallucination side where it could be like most evidence shows that you need to send at least two thousand applications to
+
+taylor desseyn (38:19)
+Mm-hmm.
+
+Brittany Ellich (38:19)
+get one reply.
+
+Erika (38:21)
+Excellent. okay, let's do one more. the prompt is write a message to the CTO of my dream company.
+
+First
+
+of all, I'm gonna assume that the bad response does not have any like contextual input. So I I feel like it would just like pick some random company. Like maybe even a company that doesn't even exist. Just like
+
+taylor desseyn (38:42)
+Like Blockbuster.
+
+Erika (38:44)
+yeah, yeah. GameStop.
+
+Brittany Ellich (38:45)
+Yeah.
+
+taylor desseyn (38:46)
+Yeah.
+
+I would
+
+say hey, hey, Mr. Manager. I I'm really trying not to think like me 'cause really hard. 'cause I I
+
+Erika (38:53)
+Mm-hmm.
+
+taylor desseyn (38:53)
+want to say what you need to write, but that's not the point. hey, Mr. Manager. are you actively hiring for a role? I have great communication skills and and my organizational skills are top notch. You should hire me.
+
+Erika (39:09)
+my gosh. That's golden. I don't know if I can
+
+taylor desseyn (39:10)
+I don't think that's quite as good, but yeah.
+
+Erika (39:12)
+I don't know if I can add to that. That's
+
+taylor desseyn (39:14)
+Yeah.
+
+Brittany Ellich (39:14)
+gonna
+
+say I like I've gotten LinkedIn messages that say like that verbatim
+
+taylor desseyn (39:16)
+Yeah. Or like or like I
+
+Erika (39:17)
+Yeah. Exactly.
+
+taylor desseyn (39:18)
+work I work great with people. and I'm proficient in Microsoft Word. Yeah, there you go. I'm great with Microsoft Word and I'm a proficient Microsoft great with people. Yeah. You should hire me.
+
+Brittany Ellich (39:29)
+Look at all of my LinkedIn skills.
+
+taylor desseyn (39:30)
+Yeah, full stop.
+
+Erika (39:31)
+Mm-hmm.
+
+Mm-hmm. man, too good. Okay, we'll have to check out the the Instagram chat GPT prompt guy for more inspiration next time.
+
+taylor desseyn (39:40)
+Yeah.
+
+Erika (39:42)
+but for now, where can folks find you on the internet, Taylor?
+
+taylor desseyn (39:47)
+Yeah, so I used my AI agent to launch my very first like web page, landing page. So it's literally tdesin.com. It secured the domain for me, set everything up. so you know, again, I'm T Dessin across all social media, T D E S S E Y Y N. So we go to T Dessin.com. and I'm currently working on a rebrand already because I don't like what I did. so anyways, yeah, to find me there. I'm on all social media.
+
+Taylor at torque.dev is my email. but yeah, I'm everywhere.
+
+Brittany Ellich (40:15)
+You are an engineer already. Already working on
+
+a rebrand.
+
+Erika (40:18)
+Well, listeners, thank you so much for tuning in to Overcommitted.
+
+If you like what you hear, please do follow, subscribe, or do whatever it is like to do on the podcast app of your choice. Check us out on Blue Sky and share with your friends. Until next week. Goodbye.
+
